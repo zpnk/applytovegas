@@ -2,5 +2,10 @@
   "name": "applytovegas",
   "version": "0.0.0",
   "description": "Connecting tech talent & companies in Vegas.",
-  "author": "@zpnk"
+  "author": "@zpnk",
+  "repository": "zpnk/applytovegas",
+  "devDependencies": {
+    "mocha": "^2.2.5",
+    "should": "^6.0.3"
+  }
 }
