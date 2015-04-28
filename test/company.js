@@ -1,19 +1,22 @@
+var db = require('../db')
+
 var Company = {
-  name: 'xyz, inc',
-  email: 'jobs@xyz.com',
-  website: 'http://xyz.com',
-  logo: 'http://xyz.com/logo.png',
-  roles: [1,2]
+  find: function(id) {
+    return db.first().from('companies').where('id', id)
+  }
 }
 
 describe('Company', function() {
 
-  it('should have the required properties', function() {
-    Company.should.have.property('name')
-    Company.should.have.property('email')
-    Company.should.have.property('website')
-    Company.should.have.property('logo')
-    Company.should.have.property('roles')
+  describe('.find', function() {
+
+    it('should return the company', function() {
+      return Company.find(1)
+        .then(function(company) {
+          company.id.should.equal(1)
+        })
+    })
+
   })
 
 })
