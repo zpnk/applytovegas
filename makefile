@@ -8,7 +8,7 @@ help:
 	@echo "    db.reset             Drops the database, then creates it again"
 
 test:
-	./node_modules/.bin/_mocha test --require should --bail --colors
+	./node_modules/.bin/_mocha test --recursive --require should --bail --colors
 
 db.drop:
 	dropdb $(DATABASE)
