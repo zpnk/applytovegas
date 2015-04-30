@@ -1,13 +1,7 @@
-var Company = require.main.require('models/company')
+var fixtures = require.main.require('test/fixtures')
+var Company  = require.main.require('models/company')
 
 describe('Company', function() {
-
-  var newCompany = {
-    name: 'xyz, inc',
-    email: 'jobs@xyz.com',
-    website: 'http://xyz.com',
-    logo: 'http://xyz.com/logo.png'
-  }
 
   describe('.find', function() {
 
@@ -23,9 +17,10 @@ describe('Company', function() {
   describe('.create', function() {
 
     it('should save and return the company', function() {
-      return Company.create(newCompany)
+      return Company.create(fixtures.company(2))
         .then(function(company) {
-          company.id.should.be.Number
+          company.id.should.equal(2)
+          company.email.should.equal('jobs@xyz2.com')
         })
     })
 
