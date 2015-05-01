@@ -5,10 +5,12 @@ describe('Company', function() {
 
   describe('.find', function() {
 
-    it('should return the company', function() {
+    it('should return the company with its roles', function() {
       return Company.find(1)
         .then(function(company) {
           company.id.should.equal(1)
+          company.roles.should.have.length(1)
+          company.roles[0].should.be.a.String
         })
     })
 

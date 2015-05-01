@@ -6,5 +6,5 @@ before(function(done) {
 })
 
 after(function(done) {
-  clean.tables(['companies']).then(done)
+  clean.tables(['roles', 'companies']).then(done)
 })
