@@ -1,4 +1,5 @@
-var db = require('../db')
+var db   = require('../db')
+var omit = require('lodash.omit')
 
 var Company = {
 
@@ -15,9 +16,20 @@ var Company = {
   },
 
   create: function(company) {
-    return db.insert(company).into('companies').returning('*')
+    var companyData = omit(company, 'roles')
+    var savedCompany = null
+
+    return db.insert(companyData).into('companies').returning('*')
       .then(function(rows) {
-        return rows[0]
+        savedCompany = rows[0]
+        var roles = company.roles.map(function(role) {
+          return { company: savedCompany.id, role: role }
+        })
+        return db.insert(roles).into('company_roles').returning('role')
+      })
+      .then(function(roles) {
+        savedCompany.roles = roles
+        return savedCompany
       })
   }
 

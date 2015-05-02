@@ -14,10 +14,16 @@ var fixtures = {
     }
   },
 
-  company_role: function(company, role) {
+  companyWithRoles: function(id) {
+    var company = this.company(id)
+    company.roles = [1]
+    return company
+  },
+
+  companyRole: function(companyId) {
     return {
-      company: company,
-      role: role
+      company: companyId,
+      role: 1
     }
   }
 }
@@ -28,7 +34,7 @@ var load = function() {
       return db.insert(fixtures.company(1)).into('companies')
     })
     .then(function() {
-      return db.insert(fixtures.company_role(1,1)).into('company_roles')
+      return db.insert(fixtures.companyRole(1)).into('company_roles')
     })
     .return()
 }

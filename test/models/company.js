@@ -18,11 +18,12 @@ describe('Company', function() {
 
   describe('.create', function() {
 
-    it('should save and return the company', function() {
-      return Company.create(fixtures.company(2))
+    it('should save the company and its roles', function() {
+      return Company.create(fixtures.companyWithRoles(2))
         .then(function(company) {
           company.id.should.equal(2)
-          company.email.should.equal('jobs@xyz2.com')
+          company.roles.should.have.length(1)
+          company.roles[0].should.equal(1)
         })
     })
 
