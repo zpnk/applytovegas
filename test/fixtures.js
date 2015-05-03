@@ -25,6 +25,17 @@ var fixtures = {
       company: companyId,
       role: 1
     }
+  },
+
+  candidate: function(id) {
+    return {
+      name: 'first last',
+      email: 'first@last'+id+'.com',
+      role: 1,
+      about: 'this should be between fifty and two hundred characters.',
+      resume: 'http://last'+id+'.com/resume.pdf',
+      links: ['http://github.com/last'+id]
+    }
   }
 }
 
@@ -35,6 +46,9 @@ var load = function() {
     })
     .then(function() {
       return db.insert(fixtures.companyRole(1)).into('company_roles')
+    })
+    .then(function() {
+      return db.insert(fixtures.candidate(1)).into('candidates')
     })
     .return()
 }
