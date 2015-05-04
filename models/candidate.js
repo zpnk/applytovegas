@@ -3,7 +3,12 @@ var db = require('../db')
 var Candidate = {
 
   find: function(id) {
-    return db.first().from('candidates').where('id', id)
+    return db.select('candidates.*', 'roles.title as role')
+      .from('candidates')
+      .innerJoin('roles', 'roles.id', 'candidates.role')
+      .then(function(rows) {
+        return rows[0]
+      })
   },
 
   create: function(candidate) {

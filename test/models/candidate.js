@@ -5,10 +5,11 @@ describe('Candidate', function() {
 
   describe('.find', function() {
 
-    it('should return the candidate', function() {
+    it('should return the candidate with its role', function() {
       return Candidate.find(1)
         .then(function(candidate) {
           candidate.id.should.equal(1)
+          candidate.role.should.be.a.String
         })
     })
 
