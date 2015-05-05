@@ -48,7 +48,8 @@ var load = function() {
       return db.insert(fixtures.companyRole(1)).into('company_roles')
     })
     .then(function() {
-      return db.insert(fixtures.candidate(1)).into('candidates')
+      var candidates = [fixtures.candidate(0), fixtures.candidate(1)]
+      return db.insert(candidates).into('candidates')
     })
     .return()
 }

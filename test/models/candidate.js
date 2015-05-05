@@ -13,6 +13,15 @@ describe('Candidate', function() {
         })
     })
 
+    it('should return multiple candidates', function() {
+      return Candidate.find([1,2])
+        .then(function(candidates) {
+          candidates.should.be.an.Array
+          candidates[0].id.should.equal(1)
+          candidates[1].id.should.equal(2)
+        })
+    })
+
   })
 
   describe('.create', function() {
@@ -20,7 +29,7 @@ describe('Candidate', function() {
     it('should save the candidate', function() {
       return Candidate.create(fixtures.candidate(2))
         .then(function(candidate) {
-          candidate.id.should.equal(2)
+          candidate.should.have.property('created_at')
         })
     })
 
