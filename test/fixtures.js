@@ -36,6 +36,11 @@ var fixtures = {
       resume: 'http://last'+id+'.com/resume.pdf',
       links: ['http://github.com/last'+id]
     }
+  },
+
+  connection: {
+    company: 1,
+    candidate: 1
   }
 }
 
