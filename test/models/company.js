@@ -18,10 +18,24 @@ describe('Company', function() {
 
   describe('.create', function() {
 
+    it('should fail if validations do not pass', function() {
+      return Company.create({})
+        .catch(function(error) {
+          error.message.should.match(/required/)
+        })
+    })
+
+    it('should fail if email is duplicate', function() {
+      return Company.create(fixtures.companyWithRoles(1))
+        .catch(function(error) {
+          error.message.should.match(/duplicate/)
+        })
+    })
+
     it('should save the company and its roles', function() {
       return Company.create(fixtures.companyWithRoles(2))
         .then(function(company) {
-          company.id.should.equal(2)
+          company.should.have.property('created_at')
           company.roles.should.have.length(1)
           company.roles[0].should.equal(1)
         })

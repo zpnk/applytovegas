@@ -1,5 +1,16 @@
 var db   = require('../db')
+var joi  = require('joi')
 var omit = require('lodash.omit')
+
+var schema = joi.object().keys({
+  name: joi.string().min(3).max(50),
+  email: joi.string().email(),
+  website: joi.string().uri(),
+  logo: joi.string().uri(),
+  roles: joi.array().items(joi.number()).required()
+}).options({
+  abortEarly: false
+})
 
 var Company = {
 
@@ -16,6 +27,8 @@ var Company = {
   },
 
   create: function(company) {
+    if (error = schema.validate(company).error) return Promise.reject(error)
+
     var companyData = omit(company, 'roles')
     var savedCompany = null
 
