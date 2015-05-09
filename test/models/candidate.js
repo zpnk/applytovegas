@@ -26,6 +26,20 @@ describe('Candidate', function() {
 
   describe('.create', function() {
 
+    it('should fail if validations do not pass', function() {
+      return Candidate.create({})
+        .catch(function(error) {
+          error.message.should.match(/required/)
+        })
+    })
+
+    it('should fail if email is duplicate', function() {
+      return Candidate.create(fixtures.candidate(1))
+        .catch(function(error) {
+          error.message.should.match(/duplicate/)
+        })
+    })
+
     it('should save the candidate', function() {
       return Candidate.create(fixtures.candidate(2))
         .then(function(candidate) {

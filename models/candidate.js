@@ -1,4 +1,16 @@
-var db = require('../db')
+var db  = require('../db')
+var joi = require('joi')
+
+var schema = joi.object().keys({
+  name: joi.string().min(3).max(50),
+  email: joi.string().email(),
+  role: joi.number().integer().required(),
+  about: joi.string().min(50).max(200),
+  resume: joi.string().uri(),
+  links: joi.array().items(joi.string().uri())
+}).options({
+  abortEarly: false
+})
 
 var Candidate = {
 
@@ -14,6 +26,8 @@ var Candidate = {
   },
 
   create: function(candidate) {
+    if (error = schema.validate(candidate).error) return Promise.reject(error)
+
     return db.insert(candidate).into('candidates').returning('*')
       .then(function(rows) {
         return rows[0]
