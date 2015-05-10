@@ -9,6 +9,7 @@
     "should": "^6.0.3"
   },
   "dependencies": {
+    "express": "^4.12.4",
     "joi": "^6.4.2",
     "knex": "^0.8.6",
     "lodash.omit": "^3.1.0",
