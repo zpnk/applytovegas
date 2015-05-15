@@ -5,6 +5,9 @@ var server  = express()
 
 server.disable('x-powered-by')
 
+server.set('view engine', 'hbs')
+server.set('views', __dirname + '/views')
+
 server.use(routes)
 
 server.listen(port, function() {
