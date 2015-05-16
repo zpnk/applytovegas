@@ -8,6 +8,7 @@ server.disable('x-powered-by')
 server.set('view engine', 'hbs')
 server.set('views', __dirname + '/views')
 
+server.use(express.static(__dirname + '/public'))
 server.use(routes)
 
 server.listen(port, function() {

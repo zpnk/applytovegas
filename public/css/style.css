@@ -1,0 +1,474 @@
+/*
+ * Ionicons Font
+ */
+
+@font-face {
+  font-family: 'Ionicons';
+  font-style: normal;
+  font-weight: normal;
+  src: local('Ionicons'),
+       url("//code.ionicframework.com/ionicons/2.0.1/fonts/ionicons.woff?v=2.0.1") format("woff");
+}
+
+.icon {
+  font-family: Ionicons;
+}
+
+/*
+ * Base
+ */
+body {
+  background-color: rgb(255, 255, 255);
+  font: 300 1em/1.38 'Open Sans';
+  color: rgb(35, 35, 35);
+}
+
+.wrapper {
+  width: 100%;
+  max-width: 960px;
+  margin: 0 auto;
+}
+
+p {
+  font-weight: 400;
+}
+
+a {
+  color: inherit;
+  border-bottom: 1px solid rgb(51, 123, 156);
+}
+
+a:hover {
+  color: rgb(51, 123, 156);
+  border-bottom: 1px solid rgb(51, 123, 156);
+}
+
+/*
+ * Header
+ */
+header {
+  padding-top: 50px;
+  background: url('../images/header.jpg') center no-repeat;
+  background-size: cover;
+}
+
+/* Header>Navbar
+*/
+header .navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-bottom: 50px;
+}
+
+header .logo {
+  width: 225px;
+  height: auto;
+  border: none;
+}
+
+nav {
+  width: 50%;
+  text-align: right;
+}
+
+nav a {
+  margin-left: 25px;
+  color: #232323;
+  font-weight: 400;
+  border: 0;
+}
+
+/* Header>Hero
+*/
+header h1 {
+  width: 100%;
+  padding-bottom: 10px;
+  font-size: 2.25em;
+  line-height: 1.38;
+  text-align: center;
+  color: #232323;
+}
+
+header h3 {
+  width: 100%;
+  font-size: 1em;
+  font-weight: 400;
+  line-height: 1.38;
+  text-align: center;
+  color: #232323;
+}
+
+/* Header>Finder
+*/
+.finder {
+  width: 960px;
+  margin-top: 70px;
+  display: inline-flex;
+  justify-content: space-between;
+}
+
+.finder .find {
+  width: 49%;
+  padding: 10px 10px 25px;
+  background-color: rgba(255, 255, 255, 0.79);
+}
+
+.finder .find h2 {
+  width: 100%;
+  font-size: 1.375em;
+  text-align: center;
+  height: 40px;
+  border-bottom: 1px solid #d3d3d3;
+}
+
+.finder .find .choice {
+  height: 35px;
+  margin: 25px auto 0;
+  text-align: center;
+}
+
+.finder .find .choice p {
+  font-size: 1.25em;
+  line-height: 1.6;
+  font-weight: 300;
+  padding-right: 8px;
+  display: inline;
+}
+
+.finder .find .choice select {
+  height: 35px;
+  padding: 0 25px 0 10px;
+  border: 1px solid rgb(51, 123, 156);
+  background: url('../images/select-arrows.svg') right center no-repeat;
+  font-size: 1.25em;
+  line-height: 1.38;
+}
+
+
+/*
+ * Content
+ */
+
+section {
+  padding-top: 100px;
+}
+
+section h1 {
+  width: 100%;
+  padding-bottom: 35px;
+  font-size: 1.875em;
+  line-height: 1;
+  text-align: center;
+}
+
+section.page h1 {
+  padding-bottom: 10px;
+}
+
+section h4 {
+  width: 100%;
+  font-size: 0.938em;
+  line-height: 2;
+  text-align: center;
+  color: rgb(35, 35, 35);
+}
+
+/* Index>How it Works
+*/
+#how-it-works .steps {
+  display: inline-flex;
+}
+
+#how-it-works .step {
+  padding: 0 10px 0 10px;
+  text-align: center;
+}
+
+#how-it-works .step .icon {
+  display: block;
+  font-size: 6.25em;
+  line-height: 1;
+  padding: 25px;
+  color: rgb(51, 123, 156);
+}
+
+#how-it-works .next {
+  display: block;
+  margin-top: 50px;
+  font-size: 3.125em;
+  color: rgb(209, 209, 209);
+}
+
+/* Index>Why Vegas?
+*/
+#why-vegas p {
+  text-align: center;
+}
+
+.video {
+  margin: 25px 0 10px;
+}
+
+/* Index>Company List
+*/
+#company-list {
+  padding: 25px;
+  margin-top: 100px;
+  background-color: rgb(249, 249, 249);
+  text-align: center;
+}
+
+#company-list .sign-up {
+  margin-top: 40px;
+  padding: 10px;
+  border: 1px solid rgb(51, 123, 156);
+  font-size: 1.25em;
+  line-height: 1;
+  color: rgb(51, 123, 156);
+  width: initial;
+  display: inline-block;
+}
+
+#company-list .sign-up span {
+  font-family: Ionicons;
+}
+
+#company-list .sign-up:hover {
+  color: orange;
+  border-color: orange;
+}
+
+#company-list .companies {
+  display: inline-flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+}
+
+#company-list .companies img {
+  width: 220px;
+  padding: 20px;
+}
+
+/* Index>FAQs
+*/
+.faqs li,
+.faqs li.open:hover {
+  padding: 25px;
+  margin-top: 25px;
+  background-color: rgb(234, 238, 239);
+}
+
+.faqs li:hover {
+  cursor: pointer;
+  background-color: rgb(222, 228, 229);
+}
+
+.faqs li.open {
+  cursor: default;
+}
+
+.faqs li h2 {
+  font-size: 1.375em;
+  line-height: 1;
+  margin-left: 25px;
+}
+
+.faqs li:before {
+  float: left;
+  padding-top: 2px;
+  font-size: 1.375em;
+  line-height: 1;
+  content: '\f3d3';
+  transition: 0.25s linear;
+  font-family: Ionicons;
+}
+
+.faqs li.open:before {
+  transform: rotate(90deg);
+}
+
+.faqs li p {
+  color: #555555;
+  font-weight: 400;
+  margin-left: 25px;
+  opacity: 0;
+  height: 0;
+  transition: 0.4s linear;
+}
+
+.faqs li.open p {
+  padding-top: 25px;
+  opacity: 100;
+  height: auto;
+}
+
+/* Page>Form Success
+*/
+.success {
+  display: none;
+}
+
+.success .message {
+  width: 60%;
+  margin: 0px auto;
+  background-color: rgb(234, 238, 239);
+  padding: 25px 25px 0 25px;
+  color: #555555;
+}
+
+.success .message hr {
+  border: 0;
+  border-bottom: 1px dashed #656565;
+  margin-bottom: 25px;
+}
+
+.success .message p {
+  padding-bottom: 25px;
+}
+
+.success .message b {
+  font-weight: 400;
+  font-size: 17px;
+  color: #343434;
+}
+
+/*
+ * Footer
+ */
+
+footer {
+  margin-top: 100px;
+  padding: 35px;
+  background-color: rgb(14, 56, 76);
+}
+
+footer .wrapper {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+footer .about {
+  width: 60%;
+}
+
+footer p {
+  color: #728f9c;
+  font-weight: 300;
+  line-height: 2.3em;
+}
+
+footer a {
+  color: inherit;
+  border-bottom: 1px solid #405b68;
+}
+
+footer .logo {
+  width: 225px;
+  height: auto;
+}
+
+/*
+ * Forms
+ */
+
+form {
+  width: 60%;
+  margin: 0 auto;
+}
+
+form label {
+  display: block;
+  margin-top: 50px;
+  padding-bottom: 10px;
+  border-bottom: 1px solid rgb(218, 218, 218);
+  line-height: 1;
+  text-align: center;
+  text-transform: uppercase;
+}
+
+form input {
+  width: 100%;
+  height: 60px;
+  padding: 0 15px;
+  border-right: 1px solid rgb(218, 218, 218);
+  border-bottom: 1px solid rgb(218, 218, 218);
+  border-left: 1px solid rgb(218, 218, 218);
+  font-size: 1.25em;
+}
+
+form .error {
+  border-color: rgb(208, 68, 68);
+  border-width: 2px;
+}
+
+form .error-msg {
+  padding-left: 15px;
+  background-color: rgb(208, 68, 68);
+  line-height: 2;
+  color: rgb(249, 249, 249);
+}
+
+form .error-msg:first-letter {
+  text-transform: capitalize;
+}
+
+form select {
+  width: 100%;
+  height: 60px;
+  padding-left: 15px;
+  border-right: 1px solid rgb(218, 218, 218);
+  border-bottom: 1px solid rgb(218, 218, 218);
+  border-left: 1px solid rgb(218, 218, 218);
+  background: url('../images/select-arrows.svg');
+  background-repeat: no-repeat;
+  background-size: auto auto;
+  background-position: right center;
+  font-size: 1.25em;
+}
+
+form textarea {
+  width: 100%;
+  height: 175px;
+  padding: 15px;
+  border-right: 1px solid rgb(218, 218, 218);
+  border-bottom: 1px solid rgb(218, 218, 218);
+  border-left: 1px solid rgb(218, 218, 218);
+  font-size: 1.25em;
+  resize: none;
+}
+
+form .checkboxes {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: space-around;
+  padding: 20px 0;
+  border-style: solid;
+}
+
+form .checkboxes span {
+  width: 35%;
+  padding: 10px;
+}
+
+form input[type='checkbox'] {
+  width: initial;
+  height: initial;
+  margin-right: 5px;
+}
+
+form button {
+  width: 100%;
+  height: 60px;
+  margin-top: 55px;
+  background-color: rgb(51, 123, 156);
+  font-size: 1.25em;
+  color: #f9f9f9;
+}
+
+form button:hover,
+form button:active {
+  background-color: rgb(34, 101, 132);
+}
