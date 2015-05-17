@@ -1,7 +1,7 @@
 module.exports = {
 
   new: function(req, res) {
-    res.sendStatus(200)
+    res.render('companies')
   }
 
 }
