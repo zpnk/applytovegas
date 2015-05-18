@@ -1,0 +1,52 @@
+<section class='page'>
+  <div class='wrapper'>
+    <h1>For Candidates</h1>
+    <h4>Looking to hire someone? <a href='/companies'>Sign up as a company</a>.</h4>
+
+    <form>
+      <label>A few quick questions</label>
+      <input placeholder='Your Name' type='text' tabindex='1' name='name' maxlength='50' required>
+      <input placeholder='Your Email' type='email' tabindex='2' name='email' required>
+      <select name='role' tabindex='3' required>
+        <option value='' disabled selected>Your Role</option>
+        <optgroup label='Technical Roles'>
+          <option value='1'>Full-Stack Engineer</option>
+          <option value='2'>Designer</option>
+        </optgroup>
+      </select>
+      <label>Introduce yourself</label>
+      <textarea placeholder='Say a quick hello.' tabindex='4' name='about' maxlength='200' required></textarea>
+      <fieldset>
+        <input class='link' placeholder='Add a link (github, twitter, etc)' type='url' tabindex='5'>
+      </fieldset>
+      <label>Link to your resume</label>
+      <input placeholder='Your Resume (dropbox or other link)' type='url' tabindex='6' name='resume' required>
+      <button tabindex='7'>Submit Application</button>
+    </form>
+  </div>
+</section>
+
+<section class='success'>
+  <div class='wrapper'>
+  <h1>You're good to go, <span class='name-tpl'></span>!</h1>
+  <div class='message'>
+    <p>
+      <b>Your application has been added to the queue!</b><br />
+      It is now ready to be devlivered right to company inboxes.
+    </p>
+    <hr />
+    <p>
+      <b>When should I expect a response?</b><br />
+      The companies will review and process your application as it is recieved, so response times will vary depending on the company.
+    </p>
+    <p>
+      <b>How will they get in touch?</b><br />
+      The companies will get ahold of you via the email you suppiled in your application.
+    </p>
+    <p>
+      <b>Is Vegas really that awesome?</b><br />
+      Yes. Boulder is maybe a close second though.
+    </p>
+  </div>
+  </div>
+</section>
