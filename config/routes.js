@@ -10,5 +10,6 @@ router.get('/companies', companies.new)
 router.post('/companies', companies.create)
 
 router.get('/candidates', candidates.new)
+router.post('/candidates', candidates.create)
 
 module.exports = router
