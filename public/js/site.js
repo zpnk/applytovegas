@@ -27,9 +27,29 @@
     })
   }
 
+  function preselectRoleField() {
+    var role = params().role
+    $('input[value='+role+']').prop('checked', true)
+    $('select').val(role)
+  }
+
+  // Helpers
+  function params() {
+    var params = {}
+    if (search = window.location.search) {
+      var queries = search.substring(1).split('&')
+      queries.forEach(function(query) {
+        var param = query.split('=')
+        params[param[0]] = decodeURIComponent(param[1].replace(/\+/g, ' '))
+      })
+    }
+    return params
+  }
+
   // Init
   faqs()
   navigateOnRoleSelect()
   smoothScrollNav()
+  preselectRoleField()
 
 })(jQuery)
