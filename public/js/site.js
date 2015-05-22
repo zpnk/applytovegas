@@ -15,8 +15,21 @@
     })
   }
 
+  function smoothScrollNav() {
+    $('nav a').on('click', function() {
+      var $target = $(this.hash)
+      if ($target) {
+        $('html, body').animate({
+          scrollTop: $target.offset().top
+        }, 200, 'linear')
+      }
+      return false
+    })
+  }
+
   // Init
   faqs()
   navigateOnRoleSelect()
+  smoothScrollNav()
 
 })(jQuery)
