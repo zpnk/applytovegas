@@ -33,6 +33,25 @@
     $('select').val(role)
   }
 
+  function addExtraLinkFields() {
+    $('form').on('keyup', 'input.link', function() {
+      var $self = $(this)
+      var $next = $self.next()
+      if ($self.val()) {
+        if (!$next.length) {
+          var $another = $self.clone().val(null).attr('placeholder', 'Add another link')
+          $self.after($another)
+        }
+        $self.attr('name', 'links[]')
+      } else {
+        if ($next.length && !$next.val()) {
+          $self.removeAttr('name')
+          $next.remove()
+        }
+      }
+    })
+  }
+
   // Helpers
   function params() {
     var params = {}
@@ -51,5 +70,6 @@
   navigateOnRoleSelect()
   smoothScrollNav()
   preselectRoleField()
+  addExtraLinkFields()
 
 })(jQuery)
