@@ -52,6 +52,43 @@
     })
   }
 
+  function submitForms() {
+    $('form').on('submit', function(e) {
+      e.preventDefault()
+      var $self = $(this)
+      $.ajax({
+        method: 'post',
+        data: $self.serializeArray()
+      })
+      .done(function(data) {
+        $('.page').fadeOut(function() {
+          $self.trigger('reset')
+          $('.name-tpl').html(data.name)
+          $('.success').fadeIn()
+        })
+      })
+      .fail(function(errors) {
+        $('.error').removeClass('error')
+        $('.error-msg').remove()
+
+        var errorDetails = JSON.parse(errors.responseText).details
+        errorDetails.forEach(function(error) {
+          if (~error.message.indexOf('empty')) return
+          var $field = $('[name='+error.path+']')
+
+          if (error.path === 'roles') {
+            $field = $('.checkboxes')
+            error.message = 'please select at least one role'
+          }
+
+          $field.addClass('error')
+          $field.after("<div class='error-msg'>" +
+            error.message.replace(/"/g, '')+'.</div>')
+        })
+      })
+    })
+  }
+
   // Helpers
   function params() {
     var params = {}
@@ -71,5 +108,6 @@
   smoothScrollNav()
   preselectRoleField()
   addExtraLinkFields()
+  submitForms()
 
 })(jQuery)
