@@ -3,7 +3,7 @@ var Candidate = require('../models/candidate')
 module.exports = {
 
   new: function(req, res) {
-    res.render('candidates')
+    res.render('candidates', {title: 'Candidates - '})
   },
 
   create: function(req, res) {

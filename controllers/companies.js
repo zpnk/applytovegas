@@ -3,7 +3,7 @@ var Company = require('../models/company')
 module.exports = {
 
   new: function(req, res) {
-    res.render('companies')
+    res.render('companies', {title: 'Companies - '})
   },
 
   create: function(req, res) {
