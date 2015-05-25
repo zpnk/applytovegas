@@ -22,8 +22,8 @@ var fixtures = {
 
   companyRole: function(companyId) {
     return {
-      company: companyId,
-      role: 1
+      company_id: companyId,
+      role_id: 1
     }
   },
 
@@ -31,7 +31,7 @@ var fixtures = {
     return {
       name: 'first last',
       email: 'first@last'+id+'.com',
-      role: 1,
+      role_id: 1,
       about: 'this should be between fifty and two hundred characters.',
       resume: 'http://last'+id+'.com/resume.pdf',
       links: ['http://github.com/last'+id]
@@ -39,8 +39,8 @@ var fixtures = {
   },
 
   connection: {
-    company: 1,
-    candidate: 1
+    company_id: 1,
+    candidate_id: 1
   }
 }
 

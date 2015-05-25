@@ -9,10 +9,10 @@ var Matches = {
       // {company:1, candidates:[1,2]} -> {company:{..}, candidates:[{..}, {..}]
       .map(function(match) {
         var matchInfo = {}
-        return Company.find(match.company)
+        return Company.find(match.company_id)
           .then(function(company) {
             matchInfo.company = company;
-            return Candidate.find(match.candidates)
+            return Candidate.find(match.candidate_ids)
           })
           .then(function(candidates) {
             matchInfo.candidates = candidates;

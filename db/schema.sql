@@ -39,17 +39,17 @@ create table roles (
 
 -- Link companies with roles
 create table company_roles (
-  company integer not null references companies(id),
-  role    integer not null references roles(id),
+  company_id integer not null references companies(id),
+  role_id    integer not null references roles(id),
 
-  constraint company_roles_unique unique(company, role)
+  constraint company_roles_unique unique(company_id, role_id)
 );
 
 create table candidates (
   id         serial    primary key,
   name       text      not null,
   email      text      not null unique,
-  role       integer   not null references roles(id),
+  role_id    integer   not null references roles(id),
   about      text      not null,
   resume     text      not null,
   links      text[],
@@ -63,12 +63,12 @@ create trigger set_candidate_updated_at
   for each row execute procedure set_updated_at();
 
 create table connections (
-  id         serial    primary key,
-  company    integer   not null references companies(id),
-  candidate  integer   not null references candidates(id),
-  created_at timestamp not null default now(),
+  id           serial    primary key,
+  company_id   integer   not null references companies(id),
+  candidate_id integer   not null references candidates(id),
+  created_at   timestamp not null default now(),
 
-  constraint connections_unique unique(company, candidate)
+  constraint connections_unique unique(company_id, candidate_id)
 );
 
 --------
@@ -77,13 +77,13 @@ create table connections (
 
 -- Match companies with candidates based on roles. Exclude previous matches.
 create view matches as
-  select company, array_agg(candidate) as candidates
+  select company_id, array_agg(candidate_id) as candidate_ids
   from (
-    select companies.id as company, candidates.id as candidate
+    select companies.id as company_id, candidates.id as candidate_id
       from candidates
-      join company_roles on (candidates.role = company_roles.role)
-      join companies     on (company_roles.company = companies.id)
+      join company_roles on (candidates.role_id = company_roles.role_id)
+      join companies     on (company_roles.company_id = companies.id)
   ) match
-  where (company, candidate)
-  not in (select c.company, c.candidate from connections c)
-  group by company;
+  where (company_id, candidate_id)
+  not in (select conn.company_id, conn.candidate_id from connections conn)
+  group by company_id;

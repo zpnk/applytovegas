@@ -17,8 +17,8 @@ var Company = {
   find: function(id) {
     return db.select(db.raw('companies.*, array_agg(roles.title) as roles'))
       .from('companies')
-      .innerJoin('company_roles', 'company_roles.company', 'companies.id')
-      .innerJoin('roles', 'roles.id', 'company_roles.role')
+      .innerJoin('company_roles', 'company_roles.company_id', 'companies.id')
+      .innerJoin('roles', 'roles.id', 'company_roles.role_id')
       .where('companies.id', id)
       .groupBy('companies.id')
       .then(function(rows) {
@@ -36,9 +36,9 @@ var Company = {
       .then(function(rows) {
         savedCompany = rows[0]
         var roles = company.roles.map(function(role) {
-          return { company: savedCompany.id, role: role }
+          return { company_id: savedCompany.id, role_id: role }
         })
-        return db.insert(roles).into('company_roles').returning('role')
+        return db.insert(roles).into('company_roles').returning('role_id')
       })
       .then(function(roles) {
         savedCompany.roles = roles
