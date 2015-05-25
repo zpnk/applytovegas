@@ -4,6 +4,9 @@
   "description": "Connecting tech talent & companies in Vegas.",
   "author": "@zpnk",
   "repository": "zpnk/applytovegas",
+  "scripts": {
+    "test": "make test"
+  },
   "devDependencies": {
     "mocha": "^2.2.5",
     "should": "^6.0.3"
