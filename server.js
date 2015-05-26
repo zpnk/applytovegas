@@ -7,11 +7,11 @@ var server  = express()
 server.disable('x-powered-by')
 
 server.set('view engine', 'hbs')
-server.set('views', __dirname + '/views')
+require('hbs').registerPartials('views/partials')
 
 server.use(parser.urlencoded({extended: true}))
 
-server.use(express.static(__dirname + '/public'))
+server.use(express.static('public'))
 server.use(routes)
 
 server.listen(port, function() {

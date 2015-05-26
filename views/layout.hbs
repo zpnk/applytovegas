@@ -31,9 +31,8 @@
         <div class='choice'>
           <p>You are a...</p>
           <select class='roles' data-for='candidates'>
-            <option value='' disabled selected style='display:none'>Designer</option>
-            <option value='2'>Designer</option>
-            <option value='1'>Full-Stack Developer</option>
+            <option value='' disabled selected style='display:none'>UI/UX Designer</option>
+            {{> role_options}}
           </select>
         </div>
       </div>
@@ -42,9 +41,8 @@
         <div class='choice'>
           <p>You need a...</p>
           <select class='roles' data-for='companies'>
-            <option value='' disabled selected style='display:none'>Full-Stack Developer</option>
-            <option value='1'>Full-Stack Developer</option>
-            <option value='2'>Designer</option>
+            <option value='' disabled selected style='display:none'>DevOps Engineer</option>
+            {{> role_options}}
           </select>
         </div>
       </div>
