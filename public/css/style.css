@@ -233,8 +233,8 @@ section h4 {
 }
 
 #company-list .sign-up:hover {
-  color: orange;
-  border-color: orange;
+  color: #d6724a;
+  border-color: #d6724a;
 }
 
 #company-list .companies {
@@ -484,12 +484,12 @@ form button {
   width: 100%;
   height: 60px;
   margin-top: 55px;
-  background-color: rgb(51, 123, 156);
+  background-color: #d6724a;
   font-size: 1.25em;
   color: #f9f9f9;
 }
 
 form button:hover,
 form button:active {
-  background-color: rgb(34, 101, 132);
+  background-color: #d77e5b;
 }
