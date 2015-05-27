@@ -1,0 +1,10 @@
+language: node_js
+node_js: '0.12'
+addons:
+  postgresql: '9.4'
+before_script: make db.create
+deploy:
+  provider: heroku
+  api_key:
+    secure: jvH8KgJLOpAfp5rjfJ6HZBJa/HeddPlzVay2x1ZtEbJL8tqEUD48vKSB1fbtVkBK5BSHEvAIgG0+437LudcP7UAuBnJj031xzB4emmFjsLh6w4SWJAEKS/vuCYb82w1gefiBasOXNX1QKodD6Q9k4N3LxXDdlwMYLJ4NfPs3RkeaIqPsSlVe2g3Coth/n2+30Tgc9I66SfkU2n/AXaRqCNVU/RbaQsy5dcMkqSLsdwYwJX483m1wFDHK5PUPJPb3P8301Q8eMV92/D/k6PKeIsMoTpTmsiA7KjeNxLffy9fZNRm2eS9rTMB6tW1c1tnjIciitbpvzIsDPT0DC6u0/25jqElZ/kv0qdkICOW2UKWTbuyXZ7/P+MrbbQ16K/SMI6raipNoQ0OboNgXU+57cAhOKzKT70yJvz0lle4mEb/5vikD3ocbcBoGSNL5Jcz8S9RfzxjYcRL3b82JjS3AmM2wlovrusJTdg6hmnGX8wlpHSBTXFtvWwGwJN/owadtEUX/LfotX/gfT4QPb3TDUZU3i2mHebRaYP63U/aG9lzYYLa1V8qFemLC8XQ49Fwlf303DDf7PkBIRqVf5uxTbKjabJyCmnM6Axm9LQ3hqrG10VOMnbSB44sA96OjeEFP5MqnTqy5kxlJdGvkTT5dT1DO8iw5dPhA4sCn5BQfYbQ=
+  app: rushing-springs-9616
