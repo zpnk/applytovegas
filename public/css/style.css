@@ -58,6 +58,9 @@ header .navbar {
   display: flex;
   justify-content: space-between;
   align-items: center;
+  display: -webkit-flex;
+  -webkit-justify-content: space-between;
+  -webkit-align-items: center;
   padding-bottom: 50px;
 }
 
@@ -104,8 +107,10 @@ header h3 {
 .finder {
   width: 960px;
   margin-top: 70px;
-  display: inline-flex;
+  display: flex;
   justify-content: space-between;
+  display: -webkit-flex;
+  -webkit-justify-content: space-between;
 }
 
 .finder .find {
@@ -175,7 +180,8 @@ section h4 {
 /* Index>How it Works
 */
 #how-it-works .steps {
-  display: inline-flex;
+  display: flex;
+  display: -webkit-flex;
 }
 
 #how-it-works .step {
@@ -238,10 +244,14 @@ section h4 {
 }
 
 #company-list .companies {
-  display: inline-flex;
+  display: flex;
   flex-wrap: wrap;
   justify-content: center;
   align-items: center;
+  display: -webkit-flex;
+  -webkit-flex-wrap: wrap;
+  -webkit-justify-content: center;
+  -webkit-align-items: center;
 }
 
 #company-list .companies img {
@@ -346,6 +356,9 @@ footer .wrapper {
   display: flex;
   justify-content: space-between;
   align-items: center;
+  display: -webkit-flex;
+  -webkit-justify-content: space-between;
+  -webkit-align-items: center;
 }
 
 footer .about {
@@ -453,6 +466,9 @@ form .checkboxes {
   display: flex;
   flex-flow: row wrap;
   justify-content: space-around;
+  display: -webkit-flex;
+  -webkit-flex-flow: row wrap;
+  -webkit-justify-content: space-around;
   padding-top: 20px;
   border-style: solid;
 }
@@ -460,6 +476,8 @@ form .checkboxes {
 form .checkboxes .group {
   display: flex;
   flex-flow: column nowrap;
+  display: -webkit-flex;
+  -webkit-flex-flow: column nowrap;
   width: 40%;
   margin-bottom: 20px;
 }
