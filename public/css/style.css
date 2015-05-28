@@ -214,6 +214,16 @@ section h4 {
   margin: 25px 0 10px;
 }
 
+.video img {
+  cursor: pointer;
+}
+
+.video iframe {
+  display: none;
+  width: 960px;
+  height: 540px;
+}
+
 /* Index>Company List
 */
 #company-list {

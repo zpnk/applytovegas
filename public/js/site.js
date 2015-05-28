@@ -27,6 +27,17 @@
     })
   }
 
+  function loadVideo() {
+    var $video = $('.video')
+    $video.find('img').on('click', function() {
+      var $iframe = $($video.find('script').html())
+      $video.append($iframe)
+      $(this).fadeOut(function() {
+        $iframe.fadeIn()
+      })
+    })
+  }
+
   function preselectRoleField() {
     var role = params().role
     $('input[value='+role+']').prop('checked', true)
@@ -106,6 +117,7 @@
   faqs()
   navigateOnRoleSelect()
   smoothScrollNav()
+  loadVideo()
   preselectRoleField()
   addExtraLinkFields()
   submitForms()
