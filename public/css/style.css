@@ -185,6 +185,7 @@ section h4 {
 }
 
 #how-it-works .step {
+  width: 33.33%;
   padding: 0 10px 0 10px;
   text-align: center;
 }
@@ -311,15 +312,17 @@ section h4 {
   color: #555555;
   font-weight: 400;
   margin-left: 25px;
+  padding-top: 0px;
   opacity: 0;
   height: 0;
-  transition: 0.4s linear;
+  transition: padding 0.4s linear;
 }
 
 .faqs li.open p {
   padding-top: 25px;
-  opacity: 100;
+  opacity: 1;
   height: auto;
+  transition: padding 0.4s linear;
 }
 
 /* Page>Form Success
