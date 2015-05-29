@@ -43,6 +43,10 @@ a:hover {
   border-bottom: 1px solid rgb(51, 123, 156);
 }
 
+h3 {
+  font-size: 1.2em;
+}
+
 /*
  * Header
  */
@@ -207,7 +211,7 @@ section h4 {
 
 /* Index>Why Vegas?
 */
-#why-vegas p {
+#why-vegas {
   text-align: center;
 }
 
