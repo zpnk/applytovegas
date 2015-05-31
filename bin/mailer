@@ -1,0 +1,34 @@
+#!/usr/bin/env node
+
+var fs = require('fs')
+var db = require('../db')
+var hbs = require('hbs').handlebars
+var Matches = require('../models/matches')
+var Connection = require('../models/connection')
+
+var mailgun = require('mailgun-js')({
+  apiKey: process.env.MAILGUN_API_KEY,
+  domain: process.env.MAILGUN_DOMAIN
+})
+
+var template = hbs.compile(fs.readFileSync('views/emails/matches.hbs', 'utf8'))
+
+Matches.all()
+  .map(function(match) {
+    var html = template(match)
+    var email = {
+      from: 'Apply to Vegas <'+process.env.MAILGUN_EMAIL+'>',
+      to: match.company.email,
+      subject: 'Your new candidates',
+      html: html
+    }
+
+    return mailgun.messages().send(email)
+      .then(function() {
+        var connections = match.candidates.map(function(candidate) {
+          return {company_id: match.company.id, candidate_id: candidate.id}
+        })
+        return Connection.create(connections)
+      })
+  })
+  .then(db.close)

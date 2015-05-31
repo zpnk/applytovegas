@@ -1,0 +1,158 @@
+{{!-- vim: set filetype=html: --}}
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <meta name="viewport" content="width=device-width" />
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+  <title>Your new candidates</title>
+  <style type="text/css">
+    @media only screen and (max-width: 640px) {
+      #emailContainer {
+        width: 100% !important;
+      }
+      .candidate-info td {
+        display: block !important;
+        width: 100% !important;
+      }
+      .candidate-controls p {
+        text-align: left !important;
+        margin: 30px 0 20px !important;
+      }
+      .candidate-links {
+        display: inline-block !important;
+      }
+      .candidate-links a {
+        display: block !important;
+      }
+    }
+  </style>
+</head>
+<body style="background-color: #f7f7f7; -webkit-font-smoothing: antialiased; -webkit-text-size-adjust: none;">
+
+  <table border="0" cellpadding="0" cellspacing="0" height="100%" width="100%" id="bodyTable" style="font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; font-weight: 300; font-size: 16px; line-height: 1.4; color: #232323">
+    <tr>
+      <td align="center" valign="top">
+        <table border="0" cellpadding="0" cellspacing="0" width="600" id="emailContainer">
+          <tr>
+            <td align="center" valign="top">
+              <table border="0" cellpadding="0" cellspacing="20" width="100%" id="emailHeader">
+                <tr>
+                  <td align="center" valign="top">
+                    <a href="https://applyto.vegas">
+                      <img src='https://please.applyto.vegas/images/logo@2x.png' height="70" />
+                    </a>
+                  </td>
+                </tr>
+              </table>
+            </td>
+          </tr>
+          <tr>
+            <td align="center" valign="top">
+              <table border="0" cellpadding="0" cellspacing="0" width="100%" id="emailBody" style="background: #ffffff; padding: 25px 0;">
+                <tr>
+                  <td align="center" valign="top">
+                    <h1 style="font-size: 20px; font-weight: 400; padding: 0 35px;">A fresh batch of candidates, just for you!</h1>
+                  </td>
+                </tr>
+                <tr>
+                  <td valign="top">
+                    <p style="padding: 0 25px 25px 25px;">
+                      Hey {{company.name}},
+                      <br /><br />
+                      You've been matched with some new candidates!
+                      Their info is included below - check it out and if any
+                      seem like a good fit, get in touch with them!
+                    </p>
+                  </td>
+                </tr>
+                {{#each candidates}}
+                <tr>
+                  <td>
+                  <table border="0" cellpadding="0" cellspacing="0" width="100%" style="border-top: 1px solid #eaeeef;">
+                    <tr>
+                      <td style="border-bottom: 1px solid #eaeeef; padding: 25px;">
+                        <table border="0" cellpadding="0" cellspacing="0" width="100%" style="color: #444444">
+                          <tr>
+                            <td>
+                              <table border="0" cellpadding="0" cellspacing="0" width="100%" class="candidate-info">
+                                <tr>
+                                  <td style="width: 60%">
+                                    <p style="margin: 0; font-size: 18px;">
+                                      {{name}}, <br />
+                                      <i style="color: #a0a0a0; font-size: 16px">{{role}}</i>
+                                    </p>
+                                  </td>
+                                  <td style="width: 40%" class="candidate-controls">
+                                    <p style="margin: 0; text-align: right;">
+                                      <a href="{{resume}}" style="text-decoration: none; color: #ffffff; background: #d6724a; padding: 10px;">Resume</a>
+                                      <a href="mailto:{{email}}" style="text-decoration: none; color: #ffffff; background: #d6724a; padding: 10px; margin-left: 15px;">Contact</a>
+                                    </p>
+                                  </td>
+                                </tr>
+                              </table>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td>
+                              <p style="font-size: 15px;">
+                                {{about}}
+                              </p>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td class="candidate-links">
+                              <p style="font-size: 15px; margin: 0">
+                                <i>Links:</i>
+                                {{#each links}}
+                                <a href="{{this}}" style="color: #337b9c; text-decoration: none; border-bottom: 1px solid #337b9c;">{{this}}</a>
+                                {{/each}}
+                              </p>
+                            </td>
+                          </tr>
+                        </table>
+                      </td>
+                    </tr>
+                  </table>
+                  </td>
+                </tr>
+                {{/each}}
+                <tr>
+                  <td style="padding: 40px 25px 15px 25px;">
+                    <p style="margin: 0">
+                      We need your feedback!
+                      To let us know what we could be doing better, simply reply to this email.
+                      If you like what we're doing, please
+                      <a href="https://twitter.com/applytovegas" style="color: #337b9c; text-decoration: none; border-bottom: 1px solid #337b9c;">follow us on twitter</a>
+                      and <a href="https://github.com/zpnk/applytovegas" style="color: #337b9c; text-decoration: none; border-bottom: 1px solid #337b9c;">star the repo on github</a>.
+                      <br /><br />
+                      Thanks for using Apply to Vegas!
+                    </p>
+                  </td>
+                </tr>
+              </table>
+            </td>
+          </tr>
+          <tr>
+            <td align="center" valign="top">
+              <table border="0" cellpadding="20" cellspacing="0" width="100%" id="emailFooter">
+                <tr>
+                  <td align="center" valign="top">
+                    <p style="font-size: 15px; color: #555555;">
+                      <a href="https://applyto.vegas" style="color: #555555; text-decoration: none;">Apply to Vegas</a> <br />
+                      Made in Las Vegas, Nevada <br />
+                      <a href="https://twitter.com/applytovegas" style="color: #337b9c; text-decoration: none; border-bottom: 1px solid #337b9c;">Twitter</a>
+                      |
+                      <a href="https://github.com/zpnk/applytovegas" style="color: #337b9c; text-decoration: none; border-bottom: 1px solid #337b9c;">GitHub</a>
+                    </p>
+                  </td>
+                </tr>
+              </table>
+            </td>
+          </tr>
+        </table>
+      </td>
+    </tr>
+  </table>
+
+</body>
+</html>
