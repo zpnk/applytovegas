@@ -24,6 +24,18 @@ button:focus {
   border-color: #337B9C;
 }
 
+a {
+  color: #337B9C;
+  text-decoration: none;
+  border-bottom: 1px solid #337B9C;
+}
+
+a:hover,
+a:focus {
+  color: #246888;
+  border-color: #246888;
+}
+
 .email {
   display: block;
   float: left;
@@ -66,7 +78,7 @@ button:focus {
   right: 0;
   z-index: 6;
   width: 470px;
-  margin: 0 auto;
+  margin: 0 auto 100px;
   border: 20px solid rgb(255, 255, 255);
   background-color: rgb(255, 255, 255);
 }
@@ -117,6 +129,15 @@ button:focus {
   line-height: 1;
   text-align: center;
   color: rgb(35, 35, 35);
+}
+
+footer {
+  position: absolute;
+  bottom: 0;
+  padding: 30px;
+  right: 0;
+  left: 0;
+  text-align: center;
 }
 
 @media(max-width: 708px) {
