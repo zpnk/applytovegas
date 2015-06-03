@@ -30,19 +30,20 @@ var Company = {
     if (error = schema.validate(company).error) return Promise.reject(error)
 
     var companyData = omit(company, 'roles')
-    var savedCompany = null
 
     return db.insert(companyData).into('companies').returning('*')
       .then(function(rows) {
-        savedCompany = rows[0]
+        var savedCompany = rows[0]
         var roles = company.roles.map(function(role) {
           return { company_id: savedCompany.id, role_id: role }
         })
-        return db.insert(roles).into('company_roles').returning('role_id')
+        var savedRoles = db.insert(roles).into('company_roles').returning('role_id')
+        return Promise.all([savedCompany, savedRoles])
       })
-      .then(function(roles) {
-        savedCompany.roles = roles
-        return savedCompany
+      .then(function(savedData) {
+        var newCompany = savedData[0]
+        newCompany.roles = savedData[1]
+        return newCompany
       })
   }
 
